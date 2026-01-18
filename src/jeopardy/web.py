@@ -66,10 +66,36 @@ def main():
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()
+
+        st.write("---")
+        st.write("Skip to Round:")
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("Double", help="Skip to Double Jeopardy"):
+                for key in list(st.session_state.keys()):
+                    del st.session_state[key]
+                st.session_state.round_num = 2
+                st.session_state.score = 0
+                st.session_state.answered = set()
+                categories, board, values, daily_doubles = init_round(2)
+                st.session_state.categories = categories
+                st.session_state.board = board
+                st.session_state.values = values
+                st.session_state.daily_doubles = daily_doubles
+                st.rerun()
+        with col2:
+            if st.button("Final", help="Skip to Final Jeopardy"):
+                for key in list(st.session_state.keys()):
+                    del st.session_state[key]
+                st.session_state.round_num = 3
+                st.session_state.score = 0
+                st.session_state.fj_clue = get_final_jeopardy_clue(DB_PATH)
+                st.session_state.fj_stage = "wager"
+                st.rerun()
+
         # Debug info
         st.write("---")
         st.write(f"Round: {st.session_state.get('round_num', 'N/A')}")
-        st.write(f"Values: {st.session_state.get('values', 'N/A')}")
 
     # Initialize database
     init_database()
