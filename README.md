@@ -1,108 +1,61 @@
-# Python Learning with Claude Code
+# Jeopardy! Game
 
-This is a structured Python learning environment designed to be used with Claude Code as an AI tutor.
+A fully playable Jeopardy! game built in Python, featuring over 216,000 real clues from the show's history. The game includes all three rounds (Jeopardy!, Double Jeopardy!, and Final Jeopardy!), complete with Daily Doubles, wagering mechanics, and fuzzy answer matching.
 
-## How It Works
+**Play it now:** [jeopardy-game.streamlit.app](https://granonymous-jeopardy-game.streamlit.app)
 
-Instead of Claude Code just writing code for you, it operates in **tutor mode**:
+## Project Overview
 
-- **Socratic approach**: Claude will ask you questions before giving answers, helping you think through problems
-- **Predict-before-run**: You'll be asked to predict what code will do before running it
-- **Spaced repetition**: Concepts come back up over time to reinforce learning
-- **Progress tracking**: Your understanding is tracked so Claude knows what to review
+This project was developed as part of my journey learning Python, with Claude serving as an AI tutor. While Claude guided me through concepts and helped debug issues, I implemented all the core functions myself. The project gave me hands-on experience with file I/O, SQL databases, object-oriented programming, web interfaces, and software architecture.
 
-## Getting Started
+The game loads clue data from a TSV file containing historical Jeopardy! questions, stores them in a SQLite database for efficient querying, and presents them through either a command-line interface or a Streamlit web application. Players can answer questions using natural language, and the game uses fuzzy string matching to accept reasonable variations of correct answers.
 
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-2. Clone this repo
-3. Run `uv sync` to install dependencies
-4. Add the bin directory to your PATH:
-   ```bash
-   export PATH="$PATH:$(pwd)/bin"
-   ```
-   (Add this to your `.zshrc` or `.bashrc` to make it permanent)
-5. Run `claude` in this directory
-6. Run `/start-session` to begin!
+## Project Structure
 
-## Files
+The codebase is organized into six Python modules, each handling a distinct responsibility:
 
-- `CLAUDE.md` - Instructions for Claude on how to tutor (you can read this too!)
-- `curriculum.md` - The full learning path with modules and exercises
-- `progress.json` - Tracks what you've learned and what needs review
+### `data.py` — Data Loading and Cleaning
 
-## The Curriculum
+This module handles loading raw clue data from TSV files and preparing it for use. The `load_tsv_data()` function reads the historical clue dataset and handles a quirk of Jeopardy! history: before November 2001, clue values were half what they are today ($100-$500 instead of $200-$1000). The module automatically doubles pre-2001 values to normalize the dataset. The `validate_clue()` function filters out unusable clues—those referencing images, videos, or audio that wouldn't work in a text-based game. I learned about context managers for file handling and list comprehensions for data filtering while building this module.
 
-### Phase 1: Fundamentals (~2-3 weeks)
-Core Python concepts, modern tooling, and good practices:
-- Environment setup (uv, virtual environments)
-- Data types, collections, control flow
-- Recursion and tricky concepts (with extensive tracing practice)
-- Functions, file I/O, error handling
-- Testing, Git, basic OOP
-- SQL basics with SQLite
+### `database.py` — SQLite Database Operations
 
-### Phase 2: Project (~3-4 weeks)
-Build a playable Jeopardy! game using 216K+ real questions:
-- Data pipeline: JSON → SQLite → game queries
-- Game logic: board generation, scoring, answer checking
-- CLI interface to play in terminal
-- (Stretch) Web UI with streamlit
+Rather than keeping 216,000+ clues in memory, this module manages a SQLite database for efficient storage and querying. The `create_database()` function sets up the schema, while `load_clues_to_db()` efficiently bulk-inserts clues using parameterized queries to prevent SQL injection. The `get_usable_categories()` function contains the most complex SQL query in the project—it finds categories that have at least one clue at each of the five value levels, ensuring every column on the game board can be fully populated. I chose SQLite over alternatives because it requires no server setup and stores everything in a single portable file.
 
-## Learning Tools
+### `game.py` — Core Game Logic
 
-### Slash Commands
-- `/start-session` - Begin a learning session, get review questions, see where you left off
-- `/end-session` - Wrap up, save progress, log what you learned
-- `/progress` - See your progress through the curriculum
-- `/quiz` - Quick review questions on past concepts
-- `/hint` - Get a hint on the current exercise (without the answer!)
-- `/lesson [topic]` - Start an interactive lesson on a topic
-- `/show-terminal` - Show Claude what you did in the Python REPL
+This module contains pure functions for game mechanics—functions with no side effects that simply compute results from their inputs. The `normalize_answer()` function strips common prefixes like "What is" and "Who are," removes punctuation, and lowercases text for comparison. The `check_answer()` function uses the RapidFuzz library for fuzzy string matching, accepting answers that are close enough to correct (handling typos like "Shakespear" vs "Shakespeare" or pluralization like "combs" vs "comb"). I debated how lenient to make the matching and settled on an 80% threshold for exact ratio matching and 90% for partial matching, which feels fair without being too forgiving.
 
-### pylearn
-Instead of running `python3`, run `pylearn` in your terminal. It's a Python REPL that logs your session so Claude can see what you tried:
+### `state.py` — Game State Management
+
+This module defines a `GameState` dataclass that tracks everything about an in-progress game: the current score, which clues have been answered, and the active categories. I separated state from logic so that the game logic functions could remain pure and easily testable. The module also handles serialization—converting the game state to and from JSON for save/load functionality. One challenge was that Python sets aren't JSON-serializable, so I had to convert them to lists of lists when saving and reconstruct them when loading.
+
+### `cli.py` — Command-Line Interface
+
+The CLI module provides a terminal-based way to play the game. It handles displaying the game board with proper column alignment, prompting for user input, validating selections, and running the main game loop. The game loop pattern—display state, get input, process action, update state, check for game over—was a new concept for me and appears throughout interactive applications.
+
+### `web.py` — Streamlit Web Interface
+
+The web interface provides a more accessible way to play, deployable to the cloud so anyone with a browser can join. It implements all three Jeopardy! rounds including Daily Doubles with wagering mechanics. When you hit a Daily Double, you can wager anywhere from $5 up to your current score (or the highest value on the board, whichever is greater). The interface includes skip buttons in the sidebar for jumping directly to Double Jeopardy or Final Jeopardy, useful for testing or quick games. One design challenge was managing Streamlit's session state across page reruns—every button click reruns the entire script, so all game state must be explicitly stored and retrieved.
+
+## Design Decisions
+
+**Fuzzy Matching:** I chose to implement fuzzy answer matching rather than requiring exact answers because real Jeopardy! accepts reasonable variations. The thresholds (80% ratio, 90% partial) were tuned through trial and error to feel fair.
+
+**Database vs. In-Memory:** With 216,000+ clues, loading everything into memory would be wasteful. SQLite queries are fast and let me find categories with complete clue sets efficiently.
+
+**Compressed Database for Deployment:** The SQLite database is 72MB uncompressed—too large for GitHub. I compress it to 33MB with gzip and decompress on first run in the cloud, avoiding the need for Git LFS.
+
+**Separate Modules:** Keeping data loading, database operations, game logic, state management, and UI in separate files makes the code easier to test and modify. I can swap the CLI for a web interface without touching the game logic.
+
+## Running Locally
 
 ```bash
-$ pylearn
-Python 3.11 - Learning REPL
-Session logged to: .terminal_log
->>> x = 5
->>> x + 10
-15
+uv sync
+uv run streamlit run src/jeopardy/web.py
 ```
 
-When you come back to Claude and say "I tried it", Claude can run `/show-terminal` to see exactly what happened.
-
-### Jupyter Notebooks
-Reference material and structured exercises. Claude will point you to specific cells when relevant.
-
-### Quiz Bank
-Spaced repetition questions that come up during `/start-session` and `/quiz`.
-
-## Modern Tooling
-
-This curriculum uses current best practices:
-- **uv** instead of pip (faster, better)
-- **polars** instead of pandas (faster, cleaner API)
-- **ruff** for linting
-- **pytest** for testing
-- **Type hints** from the start
-
-## Tips
-
-- **Don't rush.** Understanding > completion speed
-- **Actually predict** what code will do before running it
-- **Ask "why"** - Claude will explain, and the explanation helps
-- **It's okay to struggle** - that's where learning happens
-- **Take breaks** - spaced practice beats cramming
-
-## When You Get Stuck
-
-1. Read the error message carefully (really read it)
-2. Try to identify what went wrong yourself first
-3. Ask Claude to help you understand, not just fix it
-4. If you're frustrated, take a break - seriously
-
-## Questions?
-
-Ask Claude! It knows about this setup and can explain how things work.
+Or for the CLI version:
+```bash
+uv run python -m jeopardy.cli
+```
