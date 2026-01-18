@@ -1,0 +1,443 @@
+{
+  "student": {
+    "name": "Grady Cole",
+    "started": "2026-01-17",
+    "background": "Stats background, used R, Yale sophomore"
+  },
+  "sessions": [],
+  "concepts": {
+    "environment_setup": {
+      "status": "solid",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "uv sync, pylearn working"
+    },
+    "terminal_cli": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "variables_assignment": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "basic_types": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "strings": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "f_strings": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "type_hints": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "lists": {
+      "status": "practiced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "CS50 background, reinforced with LOD exercises"
+    },
+    "tuples": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "dictionaries": {
+      "status": "practiced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "CS50 background, practiced bracket notation access"
+    },
+    "sets": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "mutability": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "if_else": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "boolean_logic": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "for_loops": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "while_loops": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "list_comprehensions": {
+      "status": "practiced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "Filtering, transforming, combined conditions - all solid"
+    },
+    "functions_basic": {
+      "status": "practiced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "Wrote 9 pure functions in game.py"
+    },
+    "function_parameters": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "return_values": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "scope": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "docstrings": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "file_reading": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "file_writing": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "context_managers": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "pathlib": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "json_handling": {
+      "status": "introduced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "medium",
+      "notes": "Used json.loads with pathlib to load sample data"
+    },
+    "csv_handling": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "try_except": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "reading_tracebacks": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "imports": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "project_structure": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "testing_basics": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "git_basics": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "github": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "classes_basic": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "dataclasses": {
+      "status": "practiced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "GameState with methods, asdict(), field(default_factory=...)"
+    },
+    "recursion": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "sql_basics": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "sql_aggregations": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "sql_joins": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "sqlite_python": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "jupyter_notebooks": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "polars_basics": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "polars_expressions": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "polars_aggregations": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "visualization_basics": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "game_state_management": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "game_loops": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "user_input_handling": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    },
+    "string_processing": {
+      "status": "practiced",
+      "introduced": "2026-01-17",
+      "last_practiced": "2026-01-17",
+      "confidence": "high",
+      "notes": "normalize_answer: removeprefix, replace, lower, strip"
+    },
+    "fuzzy_matching": {
+      "status": "not_started",
+      "introduced": null,
+      "last_practiced": null,
+      "confidence": null,
+      "notes": ""
+    }
+  },
+  "exercises_completed": [],
+  "projects": {
+    "jeopardy_game": {
+      "status": "in_progress",
+      "phases_completed": ["phase1_data", "phase2_database", "phase3_game", "phase4_state"],
+      "current_phase": "phase5_cli",
+      "current_function": null,
+      "notes": "",
+      "milestones": {
+        "data_exploration": false,
+        "database_setup": false,
+        "sql_queries_working": false,
+        "board_generation": true,
+        "answer_checking": true,
+        "cli_playable": false,
+        "full_game_working": false
+      },
+      "functions": {
+        "phase1_data": {
+          "load_sample_data": {"status": "complete", "tested": true},
+          "validate_clue": {"status": "complete", "tested": true},
+          "clean_clues": {"status": "complete", "tested": true},
+          "get_categories": {"status": "complete", "tested": true},
+          "filter_by_category": {"status": "complete", "tested": true}
+        },
+        "phase2_database": {
+          "create_database": {"status": "complete", "tested": true},
+          "load_clues_to_db": {"status": "complete", "tested": true},
+          "get_random_clue": {"status": "complete", "tested": true},
+          "get_usable_categories": {"status": "complete", "tested": true},
+          "count_clues_by_category": {"status": "complete", "tested": true}
+        },
+        "phase3_game": {
+          "normalize_answer": {"status": "complete", "tested": true},
+          "check_answer": {"status": "complete", "tested": true},
+          "calculate_score_change": {"status": "complete", "tested": true},
+          "generate_board": {"status": "complete", "tested": true},
+          "is_board_complete": {"status": "complete", "tested": true},
+          "get_remaining_clues": {"status": "complete", "tested": true},
+          "get_clue_from_board": {"status": "complete", "tested": true},
+          "mark_clue_answered": {"status": "complete", "tested": true},
+          "count_remaining": {"status": "complete", "tested": true}
+        },
+        "phase4_state": {
+          "GameState": {"status": "complete", "tested": true},
+          "state_to_dict": {"status": "complete", "tested": true},
+          "dict_to_state": {"status": "complete", "tested": true},
+          "save_game": {"status": "complete", "tested": true},
+          "load_game": {"status": "complete", "tested": true},
+          "create_new_game": {"status": "complete", "tested": true}
+        },
+        "phase5_cli": {
+          "display_board": {"status": "not_started", "tested": false},
+          "get_category_selection": {"status": "not_started", "tested": false},
+          "get_value_selection": {"status": "not_started", "tested": false},
+          "get_player_answer": {"status": "not_started", "tested": false},
+          "play_game": {"status": "not_started", "tested": false}
+        }
+      }
+    }
+  },
+  "struggles": [],
+  "review_queue": [],
+  "meta": {
+    "last_session": "2026-01-17",
+    "total_sessions": 1,
+    "current_phase": "fundamentals",
+    "current_module": 3
+  }
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "category": "SCIENCE",
+    "value": 200,
+    "question": "This planet is known as the Red Planet",
+    "answer": "Mars",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "SCIENCE",
+    "value": 400,
+    "question": "This element has atomic number 6 and is essential for life",
+    "answer": "Carbon",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "SCIENCE",
+    "value": 600,
+    "question": "This force keeps planets in orbit around the Sun",
+    "answer": "Gravity",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "SCIENCE",
+    "value": 800,
+    "question": "This scientist developed the theory of relativity",
+    "answer": "Albert Einstein",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "SCIENCE",
+    "value": 1000,
+    "question": "This subatomic particle has a negative charge",
+    "answer": "Electron",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "HISTORY",
+    "value": 200,
+    "question": "This man was the first President of the United States",
+    "answer": "George Washington",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "HISTORY",
+    "value": 400,
+    "question": "The Declaration of Independence was signed in this year",
+    "answer": "1776",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "HISTORY",
+    "value": 600,
+    "question": "This war was fought between the North and South in America",
+    "answer": "The Civil War",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "HISTORY",
+    "value": 800,
+    "question": "This explorer is credited with discovering America in 1492",
+    "answer": "Christopher Columbus",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "HISTORY",
+    "value": 1000,
+    "question": "This ancient civilization built the pyramids at Giza",
+    "answer": "Egypt",
+    "round": "Jeopardy!",
+    "show_number": 4680,
+    "air_date": "2004-12-31"
+  },
+  {
+    "category": "LITERATURE",
+    "value": 200,
+    "question": "This playwright wrote Romeo and Juliet",
+    "answer": "William Shakespeare",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "LITERATURE",
+    "value": 400,
+    "question": "This author wrote 1984 and Animal Farm",
+    "answer": "George Orwell",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "LITERATURE",
+    "value": 600,
+    "question": "This American author wrote The Great Gatsby",
+    "answer": "F. Scott Fitzgerald",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "LITERATURE",
+    "value": 800,
+    "question": "This British author created Sherlock Holmes",
+    "answer": "Arthur Conan Doyle",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "LITERATURE",
+    "value": 1000,
+    "question": "This poet wrote 'The Road Not Taken'",
+    "answer": "Robert Frost",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "GEOGRAPHY",
+    "value": 200,
+    "question": "This is the largest continent by area",
+    "answer": "Asia",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "GEOGRAPHY",
+    "value": 400,
+    "question": "This river is the longest in the world",
+    "answer": "The Nile",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "GEOGRAPHY",
+    "value": 600,
+    "question": "This mountain is the tallest in the world",
+    "answer": "Mount Everest",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "GEOGRAPHY",
+    "value": 800,
+    "question": "This country has the largest population",
+    "answer": "China",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "GEOGRAPHY",
+    "value": 1000,
+    "question": "This ocean is the largest by area",
+    "answer": "The Pacific Ocean",
+    "round": "Jeopardy!",
+    "show_number": 4681,
+    "air_date": "2005-01-03"
+  },
+  {
+    "category": "MOVIES",
+    "value": 200,
+    "question": "This 1939 film features Dorothy and her ruby slippers",
+    "answer": "The Wizard of Oz",
+    "round": "Double Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "MOVIES",
+    "value": 400,
+    "question": "This director made Jaws and E.T.",
+    "answer": "Steven Spielberg",
+    "round": "Double Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "MOVIES",
+    "value": 600,
+    "question": "This 1994 film follows Forrest through decades of American history",
+    "answer": "Forrest Gump",
+    "round": "Double Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "MOVIES",
+    "value": 800,
+    "question": "This film franchise features a hobbit named Frodo",
+    "answer": "The Lord of the Rings",
+    "round": "Double Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "MOVIES",
+    "value": 1000,
+    "question": "This 1941 film is often called the greatest movie ever made",
+    "answer": "Citizen Kane",
+    "round": "Double Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "SPORTS",
+    "value": 200,
+    "question": "This sport is played at Wimbledon",
+    "answer": "Tennis",
+    "round": "Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "SPORTS",
+    "value": 400,
+    "question": "This athlete has won the most Olympic gold medals",
+    "answer": "Michael Phelps",
+    "round": "Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "SPORTS",
+    "value": 600,
+    "question": "This country has won the most FIFA World Cups",
+    "answer": "Brazil",
+    "round": "Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "SPORTS",
+    "value": 800,
+    "question": "This NBA player is known as 'His Airness'",
+    "answer": "Michael Jordan",
+    "round": "Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  },
+  {
+    "category": "SPORTS",
+    "value": 1000,
+    "question": "This event is known as 'The Greatest Show on Earth'",
+    "answer": "The Olympics",
+    "round": "Jeopardy!",
+    "show_number": 4682,
+    "air_date": "2005-01-04"
+  }
+]

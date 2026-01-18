@@ -1,0 +1,21 @@
+# Database (use jeopardy.db.gz instead)
+jeopardy.db
+
+# Large data files
+clues.tsv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.uv/
+
+# IDE
+.idea/
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

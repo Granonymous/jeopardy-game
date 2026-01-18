@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""
+pylearn - Logged Python REPL for learning
+
+Sessions are logged to .terminal_log so Claude can see what you've been doing.
+Run /show-terminal in Claude to share your session.
+"""
+
+import sys
+import code
+import io
+from datetime import datetime
+from pathlib import Path
+
+# Find project root (look for CLAUDE.md or progress.json)
+def find_project_root():
+    current = Path.cwd()
+    for parent in [current] + list(current.parents):
+        if (parent / "progress.json").exists() or (parent / "CLAUDE.md").exists():
+            return parent
+    return current
+
+PROJECT_ROOT = find_project_root()
+LOG_PATH = PROJECT_ROOT / ".terminal_log"
+
+class LoggedConsole(code.InteractiveConsole):
+    """Python console that logs all input/output to a file."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.log = open(LOG_PATH, 'a')
+        self.log.write(f"\n{'='*50}\n")
+        self.log.write(f"Session started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        self.log.write(f"{'='*50}\n\n")
+        self.log.flush()
+        self.last_input = ""
+
+    def push(self, line):
+        """Log input and execute."""
+        self.last_input = line
+        self.log.write(f">>> {line}\n")
+        self.log.flush()
+        return super().push(line)
+
+    def write(self, data):
+        """Log output (errors, etc)."""
+        if data.strip():  # Don't log empty lines
+            self.log.write(data)
+            if not data.endswith('\n'):
+                self.log.write('\n')
+            self.log.flush()
+        sys.stderr.write(data)
+
+    def runcode(self, code_obj):
+        """Capture and log stdout from executed code."""
+        old_stdout = sys.stdout
+        sys.stdout = captured = io.StringIO()
+
+        try:
+            exec(code_obj, self.locals)
+        except SystemExit:
+            raise
+        except:
+            self.showtraceback()
+
+        output = captured.getvalue()
+        sys.stdout = old_stdout
+
+        if output:
+            print(output, end='')
+            # Truncate very long outputs in the log (keep first/last bits)
+            if len(output) > 2000:
+                lines = output.split('\n')
+                if len(lines) > 50:
+                    truncated = '\n'.join(lines[:20]) + f'\n\n... [{len(lines) - 40} lines truncated] ...\n\n' + '\n'.join(lines[-20:])
+                    self.log.write(truncated)
+                else:
+                    self.log.write(output[:1000] + f'\n... [{len(output) - 2000} chars truncated] ...\n' + output[-1000:])
+            else:
+                self.log.write(output)
+            if not output.endswith('\n'):
+                self.log.write('\n')
+            self.log.flush()
+
+    def interact(self, banner=None, exitmsg=None):
+        """Start the interactive session."""
+        if banner is None:
+            banner = (
+                f"Python {sys.version.split()[0]} - Learning REPL\n"
+                f"Session logged to: {LOG_PATH}\n"
+                f"Type 'exit()' or Ctrl+D to quit\n"
+            )
+        super().interact(banner=banner, exitmsg=exitmsg or "Session ended. Progress logged!")
+
+    def __del__(self):
+        if hasattr(self, 'log') and self.log:
+            self.log.write(f"\n--- Session ended: {datetime.now().strftime('%H:%M:%S')} ---\n")
+            self.log.close()
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Logged Python REPL for learning")
+    parser.add_argument('--version', action='store_true', help='Show version and exit')
+    parser.add_argument('--check', action='store_true', help='Verify setup and exit')
+    args = parser.parse_args()
+
+    if args.version:
+        print(f"pylearn - Logged Python REPL")
+        print(f"Python {sys.version.split()[0]}")
+        return
+
+    if args.check:
+        print(f"✓ pylearn is installed")
+        print(f"✓ Log file: {LOG_PATH}")
+        print(f"✓ Project root: {PROJECT_ROOT}")
+        return
+
+    console = LoggedConsole()
+    console.interact()
+
+if __name__ == "__main__":
+    main()

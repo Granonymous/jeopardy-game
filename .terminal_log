@@ -1,0 +1,523 @@
+
+==================================================
+Session started: 2026-01-17 18:42:12
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 18:42:21 ---
+
+==================================================
+Session started: 2026-01-17 18:43:52
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> x = 5
+>>> x
+5
+>>> type(x)
+<class 'int'>
+>>> clue = {"category": "HISTORY", "value": 400, "question": "This French leader sold Louisana to the US"}
+>>> clue["category"]
+'HISTORY'
+>>> clue.category
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'dict' object has no attribute 'category'
+>>>  clues = [                                                                                                                                             
+  File "<console>", line 1
+    clues = [                                                                                                                                             
+IndentationError: unexpected indent
+>>>       {"category": "HISTORY", "value": 200, "answer": "Napoleon"},                                                                                      
+  File "<console>", line 1
+    {"category": "HISTORY", "value": 200, "answer": "Napoleon"},                                                                                      
+IndentationError: unexpected indent
+>>>       {"category": "HISTORY", "value": 400, "answer": "Jefferson"},                                                                                     
+  File "<console>", line 1
+    {"category": "HISTORY", "value": 400, "answer": "Jefferson"},                                                                                     
+IndentationError: unexpected indent
+>>>       {"category": "SCIENCE", "value": 200, "answer": "Oxygen"},                                                                                        
+  File "<console>", line 1
+    {"category": "SCIENCE", "value": 200, "answer": "Oxygen"},                                                                                        
+IndentationError: unexpected indent
+>>>   ]clues = [                                                                                                                                             
+  File "<console>", line 1
+    ]clues = [                                                                                                                                             
+IndentationError: unexpected indent
+>>>       {"category": "HISTORY", "value": 200, "answer": "Napoleon"},                                                                                      
+  File "<console>", line 1
+    {"category": "HISTORY", "value": 200, "answer": "Napoleon"},                                                                                      
+IndentationError: unexpected indent
+>>>       {"category": "HISTORY", "value": 400, "answer": "Jefferson"},                                                                                     
+  File "<console>", line 1
+    {"category": "HISTORY", "value": 400, "answer": "Jefferson"},                                                                                     
+IndentationError: unexpected indent
+>>>       {"category": "SCIENCE", "value": 200, "answer": "Oxygen"},                                                                                        
+  File "<console>", line 1
+    {"category": "SCIENCE", "value": 200, "answer": "Oxygen"},                                                                                        
+IndentationError: unexpected indent
+>>>   ]
+  File "<console>", line 1
+    ]
+IndentationError: unexpected indent
+>>> clues = [ {"category": "HISTORY", "value": 200, "answer": "Napoleon"}, {"category": "HISTORY", "value": 400, "answer": "Jefferson"}, {"category": "SCIENCE", "value": 200, "answer": "Oxygen"} ]
+>>> categories = clues["category"]
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: list indices must be integers or slices, not str
+>>> for clue in clues: category.append[clue["category"]
+>>> ;
+  File "<console>", line 1
+    for clue in clues: category.append[clue["category"]
+                                      ^
+SyntaxError: '[' was never closed
+>>> categories = {}
+>>> for clue in clues: categories.append[clues["category"]]
+>>> 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'dict' object has no attribute 'append'
+>>> categories = []
+>>> for clue in clues:
+>>> categories.append(clue["category"])
+  File "<console>", line 2
+    categories.append(clue["category"])
+    ^^^^^^^^^^
+IndentationError: expected an indented block after 'for' statement on line 1
+>>> for clue in clues:
+>>> 	categories.append(clue["category"])
+>>> 
+>>> categories[1]
+'HISTORY'
+>>> [clue["value"] for clue in clues]
+[200, 400, 200]
+>>> [clue for clue in clues if clue["category"] == "HISTORY"]
+[{'category': 'HISTORY', 'value': 200, 'answer': 'Napoleon'}, {'category': 'HISTORY', 'value': 400, 'answer': 'Jefferson'}]
+>>> [clue["answer"] for clue in clues if clue["value"] == 200] 
+['Napoleon', 'Oxygen']
+>>> import json
+>>> from pathlib import Path
+>>> data = json.loads(Path("notebooks/data/sample_jeopardy.json").read_text())
+>>> len(data)
+30
+>>> data[0]
+{'category': 'SCIENCE', 'value': 200, 'question': 'This planet is known as the Red Planet', 'answer': 'Mars', 'round': 'Jeopardy!', 'show_number': 4680, 'air_date': '2004-12-31'}
+>>> set([clue["category" for clue in data]
+  File "<console>", line 1
+    set([clue["category" for clue in data]
+        ^
+SyntaxError: '[' was never closed
+>>> set([clue["category" for clue in data])
+  File "<console>", line 1
+    set([clue["category" for clue in data])
+                                          ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+>>> set([clue["category" for clue in data]])
+  File "<console>", line 1
+    set([clue["category" for clue in data]])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>> set([data["category"] for data in data])
+{'SCIENCE', 'MOVIES', 'HISTORY', 'SPORTS', 'LITERATURE', 'GEOGRAPHY'}
+>>> len([clue for clue in data if clue["round"] == "Double Jeopardy!"])
+5
+>>> clue["question"] for clue in data if clue["value"] >= 1000
+  File "<console>", line 1
+    clue["question"] for clue in data if clue["value"] >= 1000
+                     ^^^
+SyntaxError: invalid syntax
+>>> [clue["question"] for clue in data if clue["value"] >= 1000]
+['This subatomic particle has a negative charge', 'This ancient civilization built the pyramids at Giza', "This poet wrote 'The Road Not Taken'", 'This ocean is the largest by area', 'This 1941 film is often called the greatest movie ever made', "This event is known as 'The Greatest Show on Earth'"]
+>>> set(clue["category"] for clue in data if clue["value"] >= 800)
+{'SCIENCE', 'MOVIES', 'HISTORY', 'SPORTS', 'LITERATURE', 'GEOGRAPHY'}
+>>> [clue for clue in data if clue["value"] == 400 and clue["round"] = "Jeopardy!"]
+  File "<console>", line 1
+    [clue for clue in data if clue["value"] == 400 and clue["round"] = "Jeopardy!"]
+                                                                     ^
+SyntaxError: invalid syntax
+>>> [clue["question"] for clue in data if clue["value"] == 400 and clue["round"] == "Jeopardy!"]
+['This element has atomic number 6 and is essential for life', 'The Declaration of Independence was signed in this year', 'This author wrote 1984 and Animal Farm', 'This river is the longest in the world', 'This athlete has won the most Olympic gold medals']
+>>> [clue for clue in data if "the" in clue["answer"].lower()]
+[{'category': 'HISTORY', 'value': 600, 'question': 'This war was fought between the North and South in America', 'answer': 'The Civil War', 'round': 'Jeopardy!', 'show_number': 4680, 'air_date': '2004-12-31'}, {'category': 'GEOGRAPHY', 'value': 400, 'question': 'This river is the longest in the world', 'answer': 'The Nile', 'round': 'Jeopardy!', 'show_number': 4681, 'air_date': '2005-01-03'}, {'category': 'GEOGRAPHY', 'value': 1000, 'question': 'This ocean is the largest by area', 'answer': 'The Pacific Ocean', 'round': 'Jeopardy!', 'show_number': 4681, 'air_date': '2005-01-03'}, {'category': 'MOVIES', 'value': 200, 'question': 'This 1939 film features Dorothy and her ruby slippers', 'answer': 'The Wizard of Oz', 'round': 'Double Jeopardy!', 'show_number': 4682, 'air_date': '2005-01-04'}, {'category': 'MOVIES', 'value': 800, 'question': 'This film franchise features a hobbit named Frodo', 'answer': 'The Lord of the Rings', 'round': 'Double Jeopardy!', 'show_number': 4682, 'air_date': '2005-01-04'}, {'category': 'SPORTS', 'value': 1000, 'question': "This event is known as 'The Greatest Show on Earth'", 'answer': 'The Olympics', 'round': 'Jeopardy!', 'show_number': 4682, 'air_date': '2005-01-04'}]
+>>> def double(n: int) -> int:
+>>> 	return n * 2
+>>> 
+>>> double(5)
+10
+>>> double("hello")
+'hellohello'
+>>> def get_question(clue: str) -> str:
+>>> 	return clue["question"]
+>>> 
+>>> def get_question(clue: list[dict]) -> list[str]:
+>>> 	return [clue["question"] for clue in data]
+>>> 
+>>> def get_question(clue: list[dict]) -> list[str]:
+>>> 	return [clue["question"] for clue in clues]
+>>> 
+>>> get_all_question(data)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'get_all_question' is not defined. Did you mean: 'get_question'?
+>>> get_question(data)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "<console>", line 2, in get_question
+KeyError: 'question'
+>>> def get_all_questions(clues: list[dict]) -> list[str]:
+>>> 	return [clue["question"] for clue in clues]
+>>> 
+>>> get_all_questions(data)
+['This planet is known as the Red Planet', 'This element has atomic number 6 and is essential for life', 'This force keeps planets in orbit around the Sun', 'This scientist developed the theory of relativity', 'This subatomic particle has a negative charge', 'This man was the first President of the United States', 'The Declaration of Independence was signed in this year', 'This war was fought between the North and South in America', 'This explorer is credited with discovering America in 1492', 'This ancient civilization built the pyramids at Giza', 'This playwright wrote Romeo and Juliet', 'This author wrote 1984 and Animal Farm', 'This American author wrote The Great Gatsby', 'This British author created Sherlock Holmes', "This poet wrote 'The Road Not Taken'", 'This is the largest continent by area', 'This river is the longest in the world', 'This mountain is the tallest in the world', 'This country has the largest population', 'This ocean is the largest by area', 'This 1939 film features Dorothy and her ruby slippers', 'This director made Jaws and E.T.', 'This 1994 film follows Forrest through decades of American history', 'This film franchise features a hobbit named Frodo', 'This 1941 film is often called the greatest movie ever made', 'This sport is played at Wimbledon', 'This athlete has won the most Olympic gold medals', 'This country has won the most FIFA World Cups', "This NBA player is known as 'His Airness'", "This event is known as 'The Greatest Show on Earth'"]
+>>> def find_clue_by_value(clues: list[dict], value: int) -> dict | None:
+>>> 	for clue in clues:
+>>> 		if clue["value"] == value:
+>>> 			return clue
+>>> 	return None
+>>> 
+>>> find_clue_by_value(data, 400)
+{'category': 'SCIENCE', 'value': 400, 'question': 'This element has atomic number 6 and is essential for life', 'answer': 'Carbon', 'round': 'Jeopardy!', 'show_number': 4680, 'air_date': '2004-12-31'}
+>>> from jeopardy.data import load_sample_data
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+ModuleNotFoundError: No module named 'jeopardy'
+>>> uv run python
+  File "<console>", line 1
+    uv run python
+       ^^^
+SyntaxError: invalid syntax
+>>> uv run python -c "from jeopardy.data import load_sample_data; print(len(load_sample_data()))"
+  File "<console>", line 1
+    uv run python -c "from jeopardy.data import load_sample_data; print(len(load_sample_data()))"
+       ^^^
+SyntaxError: invalid syntax
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 19:39:22 ---
+
+==================================================
+Session started: 2026-01-17 19:50:00
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> bad_patterns = ["[video", "[audio"]
+>>> question = "This [video clue] shows a president"
+>>> any(pattern in question.lower() for pattern in bad_patterns)
+True
+>>> from jeopardy.data import validate_clue
+>>> validate_clue({"category": "SCIENCE", "value": 400, "question": "This is red", "answer": "Mars"})
+True
+>>> validate_clue({"category": "", "value": 400, "question": "Test", "answer": "Test"})
+False
+>>> validate_clue({"category": "HISTORY", "value": 400, "question": "[video clue] This president", "answer":        "Lincoln"})
+False
+>>> pytest tests/jeopardy/test_data.py
+  File "<console>", line 1
+    pytest tests/jeopardy/test_data.py
+           ^^^^^
+SyntaxError: invalid syntax
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 20:08:52 ---
+
+==================================================
+Session started: 2026-01-17 20:23:52
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> from pathlib import Path
+>>> from jeopardy.data import load_sample_data, clean_clues
+>>> from jeopardy.database import create_database, load_clues_to_db
+>>> test_db = Path("test_jeopardy.db")
+>>> create_database(test_db)
+>>> clues = clean_clues(load_sample_data())
+>>> count = load_clues_to_db(clues, test_db)
+>>> print(f"Loaded {count} clues")
+Loaded 30 clues
+>>> columns = ["id", "category", "value", "question", "answer", "round", "show_number", "air_date"]
+>>> row = (1, "SCIENCE", 400, "This is red", "Mars", "Jeopardy!", 1234, "2020-01-01")
+>>> dict(zip(columns, row))
+{'id': 1, 'category': 'SCIENCE', 'value': 400, 'question': 'This is red', 'answer': 'Mars', 'round': 'Jeopardy!', 'show_number': 1234, 'air_date': '2020-01-01'}
+>>> from pathlib import Path
+>>> from jeopardy.database import get_random_clue
+>>> clue = get_random_clue("SCIENCE", 400, Path("test_jeopardy.db"))
+>>> print(clue)
+None
+>>> clue = get_random_clue("HISTORY", 400, Path("test_jeopardy.db"))
+>>> print(clue)
+None
+>>> import sqlite3
+>>> conn = sqlite3.connect(Path("test_jeopardy.db"))
+>>> rows = conn.execute("SELECT DISTINCT category, value FROM clues ORDER BY category, value").fetchall()
+>>> for row in rows:
+>>> 	print(row)
+>>> conn.close()
+  File "<console>", line 3
+    conn.close()
+    ^^^^
+SyntaxError: invalid syntax
+>>> for row in rows:
+>>> 	print(row)
+>>> 
+>>> conn.close()
+>>> conn = sqlite3.connect(Path("test_jeopardy.db"))
+>>> count = conn.execute("SELECT COUNT(*) FROM clues").fetchone()
+>>> print(count)
+(0,)
+>>> conn.close()
+>>> from pathlib import Path
+>>> from jeopardy.data import load_sample_data, clean_clues
+>>> from jeopardy.database import create_database, load_clues_to_db
+>>> test_db = Path("test_jeopardy.db")
+>>> create_database(test_db)
+>>> clues = clean_clues(load_sample_data())
+>>> print(f"Clean clues: {len(clues)}")
+Clean clues: 30
+>>> count = load_clues_to_db(clues, test_db)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Users/gradycole/Desktop/jeopardy_game/src/jeopardy/database.py", line 106, in load_clues_to_db
+    conn.execute("DELETE FROM clues")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database is locked
+>>> print(f"Loaded: {count}")
+Loaded: (0,)
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 20:38:49 ---
+
+==================================================
+Session started: 2026-01-17 20:38:56
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>>   from pathlib import Path                                                                                      
+  File "<console>", line 1
+    from pathlib import Path                                                                                      
+IndentationError: unexpected indent
+>>> from pathlib import Path
+>>> from jeopardy.data import load_sample_data, clean_clues
+>>> from jeopardy.database import create_database, load_clues_to_db
+>>> test_db = Path("test_jeopardy.db")
+>>> create_database(test_db)
+>>> clues = clean_clues(load_sample_data())
+>>> print(f"Clean clues: {len(clues)}")
+Clean clues: 30
+>>> count = load_clues_to_db(clues, test_db)
+>>> print(f"Loaded: {count}")
+Loaded: 30
+>>> import sqlite3
+>>> conn = sqlite3.connect(Path("test_jeopardy.db"))
+>>> rows = conn.execute("SELECT DISTINCT category, value FROM clues ORDER BY category, value").fetchall()
+>>> for row in rows:
+>>> 	print(row)
+>>> 
+>>> conn.close()
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 20:41:08 ---
+
+==================================================
+Session started: 2026-01-17 20:41:11
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> from pathlib import Path
+>>> import sqlite3
+>>> conn = sqlite3.connect(Path("test_jeopardy.db"))
+>>> rows = conn.execute("SELECT DISTINCT category, value FROM clues ORDER BY category, value").fetchall()
+>>> for row in rows:
+>>> 	print(row)
+>>> 
+>>> conn.close()
+>>> conn = sqlite3.connect(Path("test_jeopardy.db"))
+>>> rows = conn.execute("SELECT DISTINCT category, value FROM clues ORDER BY category, value").fetchall()
+>>> for row in rows:
+>>> 	print(row)
+>>> conn.close()
+  File "<console>", line 3
+    conn.close()
+    ^^^^
+SyntaxError: invalid syntax
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 20:43:26 ---
+
+==================================================
+Session started: 2026-01-17 21:50:43
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> result = answer.lower("what's mars").strip()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'answer' is not defined
+>>> result = ("whats mars").lower().strip()
+>>> print(result)
+whats mars
+>>> result = "  mars "
+>>> result = result.lower().strip()
+>>> print(result)
+mars
+>>> text = "what is mars"
+>>> print(text.removeprefix("what is ")
+>>> )
+mars
+>>> text = mars
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'mars' is not defined. Did you mean: 'vars'?
+>>> text = "mars"
+>>> print(text.removeprefix("what is "))
+mars
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 22:01:01 ---
+
+==================================================
+Session started: 2026-01-17 22:29:15
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> from jeopardy.state import GameState
+>>> stae = GameState()
+>>> state.score
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'state' is not defined. Did you mean: 'stae'?
+>>> state = GameState()
+>>> state.score
+0
+>>> state.answered
+set()
+>>> state.score = 400
+>>> state.score
+400
+>>> state.answered.add(('SCIENCE', 400))
+>>> state.answered
+{('SCIENCE', 400)}
+>>> ('SCIENCE', 400) in state.answered
+True
+>>> uv run pytest tests/jeopardy/test_state.py -v -k "GameState"
+  File "<console>", line 1
+    uv run pytest tests/jeopardy/test_state.py -v -k "GameState"
+       ^^^
+SyntaxError: invalid syntax
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 23:09:52 ---
+
+==================================================
+Session started: 2026-01-17 23:10:58
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> clue = {"question": "Red planet", "answer": "Mars"}
+>>> {**clue, "category": "SCIENCE", "value": 400
+>>> }
+{'question': 'Red planet', 'answer': 'Mars', 'category': 'SCIENCE', 'value': 400}
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 23:12:08 ---
+
+==================================================
+Session started: 2026-01-17 23:16:26
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> import json
+>>> data = {('SCIENCE', 400), ('HISTORY', 200)}
+>>> json.dumps(data)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type set is not JSON serializable
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 23:24:58 ---
+
+==================================================
+Session started: 2026-01-17 23:27:10
+==================================================
+
+Python 3.13.1 - Learning REPL
+Session logged to: /Users/gradycole/Desktop/jeopardy_game/.terminal_log
+Type 'exit()' or Ctrl+D to quit
+
+>>> categories = ["SCIENCE", "HISTORY", "SPORTS"]
+>>> for cat in categories:
+>>> 	print(f"{cat:<12}", end="")
+>>> print()
+  File "<console>", line 3
+    print()
+    ^^^^^
+SyntaxError: invalid syntax
+>>> for cat in categories:
+>>> 	print(f"{cat:<12}", end="")
+>>> 
+SCIENCE     HISTORY     SPORTS      
+>>> print()
+
+>>> categories = ["SCIENCE", "HISTORY", "SPORTS"]
+>>> for i, cat in enumerate(categories):
+>>> 	print(f"{i}. {cat}")
+>>> 
+0. SCIENCE
+1. HISTORY
+2. SPORTS
+>>> exit()
+Session ended. Progress logged!
+
+--- Session ended: 23:52:02 ---
