@@ -90,6 +90,10 @@ def main():
                 st.session_state.round_num = 3
                 st.session_state.score = 5  # $5 so you can wager something
                 st.session_state.values = []  # Prevents reset to round 1
+                st.session_state.answered = set()
+                st.session_state.categories = []
+                st.session_state.board = {}
+                st.session_state.daily_doubles = set()
                 st.session_state.fj_clue = get_final_jeopardy_clue(DB_PATH)
                 st.session_state.fj_stage = "wager"
                 st.rerun()
