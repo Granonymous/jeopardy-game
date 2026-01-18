@@ -58,23 +58,6 @@ def init_round(round_num: int):
 def main():
     st.title("Jeopardy!")
 
-    # Disable autocomplete on text inputs
-    st.markdown("""
-        <style>
-            input[type="text"] {
-                -webkit-autocomplete: off;
-            }
-        </style>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.querySelectorAll('input').forEach(el => el.setAttribute('autocomplete', 'off'));
-            });
-            // Also try on load since Streamlit renders dynamically
-            setInterval(() => {
-                document.querySelectorAll('input').forEach(el => el.setAttribute('autocomplete', 'off'));
-            }, 500);
-        </script>
-    """, unsafe_allow_html=True)
 
     # Sidebar with reset option
     with st.sidebar:
@@ -157,7 +140,7 @@ def main():
 
         if fj_stage == "wager":
             st.write(f"How much would you like to wager? (You can wager $0 to ${score:,})")
-            wager_input = st.text_input("Wager amount:", value="0")
+            wager_input = st.text_input("Wager amount:", value="0", key="fj_wager_input")
 
             # Validate wager
             try:
@@ -184,7 +167,7 @@ def main():
             st.write(f'"{fj_clue["question"]}"')
             st.markdown("---")
 
-            answer = st.text_input("Your answer:")
+            answer = st.text_input("Your answer:", key="fj_answer_input")
             if st.button("Submit Final Answer"):
                 correct = check_answer(answer, fj_clue["answer"])
                 if correct:
@@ -267,7 +250,7 @@ def main():
             st.write(f"Your score: ${score:,}")
             st.write(f"You can wager from $5 to ${max_wager:,}")
 
-            wager_input = st.text_input("Your wager:", value=str(min_wager))
+            wager_input = st.text_input("Your wager:", value=str(min_wager), key=f"dd_wager_{cat}_{val}")
 
             try:
                 wager = int(wager_input.replace(",", "").replace("$", ""))
@@ -295,7 +278,7 @@ def main():
             st.subheader(f"{cat} for ${val}")
             st.write(f'"{clue["question"]}"')
 
-            answer = st.text_input("Your answer:")
+            answer = st.text_input("Your answer:", key=f"answer_{cat}_{val}")
             col1, col2 = st.columns(2)
             with col1:
                 if st.button("Submit", use_container_width=True):
