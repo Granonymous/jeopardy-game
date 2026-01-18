@@ -58,6 +58,24 @@ def init_round(round_num: int):
 def main():
     st.title("Jeopardy!")
 
+    # Disable autocomplete on text inputs
+    st.markdown("""
+        <style>
+            input[type="text"] {
+                -webkit-autocomplete: off;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('input').forEach(el => el.setAttribute('autocomplete', 'off'));
+            });
+            // Also try on load since Streamlit renders dynamically
+            setInterval(() => {
+                document.querySelectorAll('input').forEach(el => el.setAttribute('autocomplete', 'off'));
+            }, 500);
+        </script>
+    """, unsafe_allow_html=True)
+
     # Sidebar with reset option
     with st.sidebar:
         st.write("Game Controls")
