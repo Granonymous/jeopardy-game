@@ -88,7 +88,8 @@ def main():
                 for key in list(st.session_state.keys()):
                     del st.session_state[key]
                 st.session_state.round_num = 3
-                st.session_state.score = 0
+                st.session_state.score = 5  # $5 so you can wager something
+                st.session_state.values = []  # Prevents reset to round 1
                 st.session_state.fj_clue = get_final_jeopardy_clue(DB_PATH)
                 st.session_state.fj_stage = "wager"
                 st.rerun()
