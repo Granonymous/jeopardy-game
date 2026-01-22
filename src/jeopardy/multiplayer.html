@@ -666,12 +666,24 @@
             Object.values(gameState.players).forEach(player => {
                 const div = document.createElement('div');
                 div.className = 'player-score' + (player.id === playerId ? ' current' : '');
+
+                // Highlight board controller
+                const isController = player.id === gameState.board_controller;
                 div.innerHTML = `
-                    <div class="name">${player.name}</div>
+                    <div class="name">${player.name}${isController ? ' 👆' : ''}</div>
                     <div class="score">$${player.score.toLocaleString()}</div>
                 `;
+                if (isController) {
+                    div.style.border = '3px solid #00ff00';
+                }
                 scoreboard.appendChild(div);
             });
+
+            // Show message if you control the board
+            const indicator = document.getElementById('round-indicator');
+            if (playerId === gameState.board_controller && gameState.phase === 'selecting') {
+                indicator.textContent += ' - Your pick!';
+            }
         }
 
         function updateBoard() {
@@ -685,6 +697,9 @@
                 header.textContent = cat;
                 board.appendChild(header);
             });
+
+            // Debug info
+            console.log('updateBoard - playerId:', playerId, 'board_controller:', gameState.board_controller, 'phase:', gameState.phase);
 
             // Clue cells
             gameState.values.forEach(value => {
@@ -728,6 +743,7 @@
         }
 
         function selectClue(category, value) {
+            console.log('Selecting clue:', category, value);
             ws.send(JSON.stringify({
                 type: 'select_clue',
                 category: category,
