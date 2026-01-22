@@ -699,7 +699,7 @@
             });
 
             // Debug info
-            console.log('updateBoard - playerId:', playerId, 'board_controller:', gameState.board_controller, 'phase:', gameState.phase);
+            console.warn('updateBoard - playerId:', playerId, 'board_controller:', gameState.board_controller, 'phase:', gameState.phase);
 
             // Clue cells
             gameState.values.forEach(value => {
@@ -743,7 +743,7 @@
         }
 
         function selectClue(category, value) {
-            console.log('Selecting clue:', category, value);
+            console.warn('Selecting clue:', category, value);
             ws.send(JSON.stringify({
                 type: 'select_clue',
                 category: category,
