@@ -743,6 +743,7 @@
         }
 
         function selectClue(category, value) {
+            alert('Clicked: ' + category + ' $' + value);
             console.warn('Selecting clue:', category, value);
             ws.send(JSON.stringify({
                 type: 'select_clue',
