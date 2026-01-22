@@ -2,10 +2,7 @@ services:
   - type: web
     name: jeopardy-multiplayer
     runtime: python
-    buildCommand: |
-      pip install -r requirements.txt &&
-      gunzip -kf jeopardy.db.gz &&
-      chmod +x start.sh
+    buildCommand: pip install -r requirements.txt
     startCommand: ./start.sh
     envVars:
       - key: PYTHON_VERSION
