@@ -3,9 +3,10 @@ services:
     name: jeopardy-multiplayer
     runtime: python
     buildCommand: |
-      pip install -e . &&
-      gunzip -k jeopardy.db.gz
-    startCommand: uvicorn jeopardy.multiplayer:app --host 0.0.0.0 --port $PORT
+      pip install -r requirements.txt &&
+      gunzip -kf jeopardy.db.gz &&
+      chmod +x start.sh
+    startCommand: ./start.sh
     envVars:
       - key: PYTHON_VERSION
         value: "3.11"
