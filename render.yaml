@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: jeopardy-multiplayer
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt &&
+      gunzip -k jeopardy.db.gz
+    startCommand: uvicorn jeopardy.multiplayer:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: PYTHONPATH
+        value: src
