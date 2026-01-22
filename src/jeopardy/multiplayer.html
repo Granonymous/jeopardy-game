@@ -698,9 +698,6 @@
                 board.appendChild(header);
             });
 
-            // Debug info
-            console.warn('updateBoard - playerId:', playerId, 'board_controller:', gameState.board_controller, 'phase:', gameState.phase);
-
             // Clue cells
             gameState.values.forEach(value => {
                 gameState.categories.forEach(cat => {
@@ -743,8 +740,6 @@
         }
 
         function selectClue(category, value) {
-            alert('Clicked: ' + category + ' $' + value);
-            console.warn('Selecting clue:', category, value);
             ws.send(JSON.stringify({
                 type: 'select_clue',
                 category: category,
