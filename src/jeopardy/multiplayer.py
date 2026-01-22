@@ -25,10 +25,21 @@ from fastapi.responses import HTMLResponse
 from jeopardy.database import get_usable_categories, get_random_clue, get_final_jeopardy_clue
 from jeopardy.game import STANDARD_VALUES, DOUBLE_JEOPARDY_VALUES, check_answer, generate_board
 
-# Find database - check current dir first, then project root
-_cwd_db = Path("jeopardy.db")
-_project_db = Path(__file__).parent.parent.parent / "jeopardy.db"
-DB_PATH = _cwd_db if _cwd_db.exists() else _project_db
+# Find database - check multiple locations
+def _find_db():
+    candidates = [
+        Path("jeopardy.db"),  # Current working directory
+        Path(__file__).parent.parent.parent / "jeopardy.db",  # Project root from src/
+        Path("/opt/render/project/src/jeopardy.db"),  # Render specific path
+    ]
+    for p in candidates:
+        if p.exists():
+            print(f"Found database at: {p}")
+            return p
+    print(f"WARNING: Database not found! Checked: {candidates}")
+    return candidates[0]  # Fall back to cwd
+
+DB_PATH = _find_db()
 
 # Game timing constants (in seconds)
 CLUE_DISPLAY_TIME = 10  # Time to read the clue before buzzing opens
@@ -256,7 +267,13 @@ async def websocket_endpoint(websocket: WebSocket, room_id: str, player_id: str)
     try:
         while True:
             data = await websocket.receive_json()
-            await handle_message(room, player, data)
+            try:
+                await handle_message(room, player, data)
+            except Exception as e:
+                print(f"Error handling message: {e}")
+                import traceback
+                traceback.print_exc()
+                await send_to_player(player, {"type": "error", "message": f"Server error: {str(e)}"})
     except WebSocketDisconnect:
         # Player disconnected
         await broadcast_to_room(room, {
